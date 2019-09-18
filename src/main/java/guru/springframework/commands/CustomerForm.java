@@ -1,104 +1,122 @@
 package guru.springframework.commands;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Size;
+
+/**
+ * Created by jt on 12/22/15.
+ */
 public class CustomerForm {
-	
-	private Integer userId;
-	private Integer userVersion;
-	private Integer customerId;
-	private Integer customerVersion;
-	private String userName;
-	private String passwordText;
-	private String passwordTextConf;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String phoneNumber;
+    private Integer userId;
+    private Integer userVersion;
+    private Integer customerId;
+    private Integer customerVersion;
 
-	public Integer getUserId() {
-		return userId;
-	}
+    @NotEmpty
+    @Size(min = 2, max = 75)
+    private String userName;
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    @NotEmpty
+    private String passwordText;
 
-	public Integer getUserVersion() {
-		return userVersion;
-	}
+    @NotEmpty
+    private String passwordTextConf;
+    private String firstName;
+    private String lastName;
 
-	public void setUserVersion(Integer userVersion) {
-		this.userVersion = userVersion;
-	}
+    @NotEmpty
+    @Email
+    private String email;
+    private String phoneNumber;
 
-	public Integer getCustomerId() {
-		return customerId;
-	}
 
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public Integer getCustomerVersion() {
-		return customerVersion;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public void setCustomerVersion(Integer customerVersion) {
-		this.customerVersion = customerVersion;
-	}
+    public Integer getUserVersion() {
+        return userVersion;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
+    public void setUserVersion(Integer userVersion) {
+        this.userVersion = userVersion;
+    }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public Integer getCustomerId() {
+        return customerId;
+    }
 
-	public String getPasswordText() {
-		return passwordText;
-	}
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
 
-	public void setPasswordText(String passwordText) {
-		this.passwordText = passwordText;
-	}
+    public Integer getCustomerVersion() {
+        return customerVersion;
+    }
 
-	public String getPasswordTextConf() {
-		return passwordTextConf;
-	}
+    public void setCustomerVersion(Integer customerVersion) {
+        this.customerVersion = customerVersion;
+    }
 
-	public void setPasswordTextConf(String passwordTextConf) {
-		this.passwordTextConf = passwordTextConf;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getPasswordText() {
+        return passwordText;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setPasswordText(String passwordText) {
+        this.passwordText = passwordText;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getPasswordTextConf() {
+        return passwordTextConf;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setPasswordTextConf(String passwordTextConf) {
+        this.passwordTextConf = passwordTextConf;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }
