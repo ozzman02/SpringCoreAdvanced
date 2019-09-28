@@ -11,12 +11,7 @@ import java.util.Collection;
  */
 public class UserDetailsImpl implements UserDetails {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = -4867147459725631635L;
-	
-	private Collection<SimpleGrantedAuthority> authorities;
+    private Collection<SimpleGrantedAuthority> authorities;
     private String username;
     private String password;
     private Boolean enabled = true;

@@ -28,7 +28,7 @@ public class SpringSecConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(StrongPasswordEncryptor passwordEncryptor) {
+    public PasswordEncoder passwordEncoder(StrongPasswordEncryptor passwordEncryptor){
         PasswordEncoder passwordEncoder = new PasswordEncoder();
         passwordEncoder.setPasswordEncryptor(passwordEncryptor);
         return passwordEncoder;
@@ -36,7 +36,8 @@ public class SpringSecConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder,
-    		UserDetailsService userDetailsService) {
+                                                               UserDetailsService userDetailsService){
+
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
@@ -44,7 +45,7 @@ public class SpringSecConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    public void configureAuthManager(AuthenticationManagerBuilder authenticationManagerBuilder) {
+    public void configureAuthManager(AuthenticationManagerBuilder authenticationManagerBuilder){
         authenticationManagerBuilder.authenticationProvider(authenticationProvider);
     }
 
