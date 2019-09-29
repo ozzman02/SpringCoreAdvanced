@@ -32,10 +32,14 @@ public class LoginSuccessEventHandler implements ApplicationListener<LoginSucces
         User user = userService.findByUserName(userDetails.getUsername());
 
         if (user != null) { //user found
-            user.setFailedLoginAttempts(0);
-
-            System.out.println("Good login, resetting failed attempts");
-            userService.saveOrUpdate(user);
+            //user.setFailedLoginAttempts(0);
+        	if (!user.getEnabled()) {
+        		System.out.println("### Please unlock the account ###");
+        	} else {
+        		System.out.println("Good login !!");
+        	}
+            //System.out.println("Good login, resetting failed attempts");
+            //userService.saveOrUpdate(user);
         }
     }
 }
