@@ -89,7 +89,8 @@ public class UserServiceJpaDaoImplTest {
         assert savedUser.getCart().getId() != null;
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void testAddCartToUserWithCartDetails() throws Exception {
         User user = new User();
 
@@ -117,7 +118,8 @@ public class UserServiceJpaDaoImplTest {
         assert savedUser.getCart().getCartDetails().size() == 2;
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void testAddAndRemoveCartToUserWithCartDetails() throws Exception {
         User user = new User();
 

@@ -44,7 +44,8 @@ public class ProductControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(productController).build();
     }
 
-    @Test
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Test
     public void testList() throws Exception{
 
         List<Product> products = new ArrayList<>();
@@ -86,7 +87,8 @@ public class ProductControllerTest {
                 .andExpect(model().attribute("productForm", instanceOf(ProductForm.class)));
     }
 
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     public void testNewProduct() throws Exception {
         Integer id = 1;
 

@@ -27,7 +27,8 @@ public class CustomerServiceJpaDaoImplTest {
         this.customerService = customerService;
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void testList() throws Exception {
         List<Customer> customers = (List<Customer>) customerService.listAll();
 

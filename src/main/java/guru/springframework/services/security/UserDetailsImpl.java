@@ -9,6 +9,7 @@ import java.util.Collection;
 /**
  * Created by jt on 12/28/15.
  */
+@SuppressWarnings("serial")
 public class UserDetailsImpl implements UserDetails {
 
     private Collection<SimpleGrantedAuthority> authorities;

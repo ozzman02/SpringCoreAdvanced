@@ -46,7 +46,8 @@ public class CustomerControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(customerController).build();
     }
 
-    @Test
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@Test
     public void testList() throws Exception{
         List<Customer> customers = new ArrayList<>();
         customers.add(new Customer());

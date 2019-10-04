@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationEvent;
 /**
  * Created by jt on 1/6/16.
  */
+@SuppressWarnings("serial")
 public class LoginFailureEvent extends ApplicationEvent {
 
     /**

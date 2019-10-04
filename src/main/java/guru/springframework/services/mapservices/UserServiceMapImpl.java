@@ -19,49 +19,49 @@ import java.util.function.Predicate;
 @Profile("map")
 public class UserServiceMapImpl extends AbstractMapService implements UserService {
 
-    private EncryptionService encryptionService;
+	private EncryptionService encryptionService;
 
-    @Autowired
-    public void setEncryptionService(EncryptionService encryptionService) {
-        this.encryptionService = encryptionService;
-    }
+	@Autowired
+	public void setEncryptionService(EncryptionService encryptionService) {
+		this.encryptionService = encryptionService;
+	}
 
-    @Override
-    public List<DomainObject> listAll() {
-        return super.listAll();
-    }
+	@Override
+	public List<DomainObject> listAll() {
+		return super.listAll();
+	}
 
-    @Override
-    public User getById(Integer id) {
-        return (User) super.getById(id);
-    }
+	@Override
+	public User getById(Integer id) {
+		return (User) super.getById(id);
+	}
 
-    @Override
-    public User saveOrUpdate(User domainObject) {
+	@Override
+	public User saveOrUpdate(User domainObject) {
 
-        if(domainObject.getPassword() != null){
-            domainObject.setEncryptedPassword(encryptionService.encryptString(domainObject.getPassword()));
-        }
+		if (domainObject.getPassword() != null) {
+			domainObject.setEncryptedPassword(encryptionService.encryptString(domainObject.getPassword()));
+		}
 
-        return (User) super.saveOrUpdate(domainObject);
-    }
+		return (User) super.saveOrUpdate(domainObject);
+	}
 
-    @Override
-    public void delete(Integer id) {
-        super.delete(id);
-    }
+	@Override
+	public void delete(Integer id) {
+		super.delete(id);
+	}
 
-    @Override
-    public User findByUserName(String userName) {
+	@Override
+	public User findByUserName(String userName) {
 
-        Optional returnUser =  domainMap.values().stream().filter(new Predicate<DomainObject>() {
-            @Override
-            public boolean test(DomainObject domainObject) {
-                User user = (User) domainObject;
-                return user.getUsername().equalsIgnoreCase(userName);
-            }
-        }).findFirst();
+		Optional<DomainObject> returnUser = domainMap.values().stream().filter(new Predicate<DomainObject>() {
+			@Override
+			public boolean test(DomainObject domainObject) {
+				User user = (User) domainObject;
+				return user.getUsername().equalsIgnoreCase(userName);
+			}
+		}).findFirst();
 
-        return (User) returnUser.get();
-    }
+		return (User) returnUser.get();
+	}
 }

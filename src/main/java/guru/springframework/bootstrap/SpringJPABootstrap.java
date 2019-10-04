@@ -51,7 +51,8 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
 
     }
 
-    private void assignUsersToDefaultRole() {
+    @SuppressWarnings("unchecked")
+	private void assignUsersToDefaultRole() {
         List<Role> roles = (List<Role>) roleService.listAll();
         List<User> users = (List<User>) userService.listAll();
 
@@ -74,7 +75,8 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         });
     }
 
-    private void assignUsersToAdminRole() {
+    @SuppressWarnings("unchecked")
+	private void assignUsersToAdminRole() {
         List<Role> roles = (List<Role>) roleService.listAll();
         List<User> users = (List<User>) userService.listAll();
 
@@ -101,7 +103,8 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         roleService.saveOrUpdate(adminRole);
     }
 
-    private void loadOrderHistory() {
+    @SuppressWarnings("unchecked")
+	private void loadOrderHistory() {
         List<User> users = (List<User>) userService.listAll();
         List<Product> products = (List<Product>) productService.listAll();
 
@@ -119,7 +122,8 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         });
     }
 
-    private void loadCarts() {
+    @SuppressWarnings("unchecked")
+	private void loadCarts() {
         List<User> users = (List<User>) userService.listAll();
         List<Product> products = (List<Product>) productService.listAll();
 
