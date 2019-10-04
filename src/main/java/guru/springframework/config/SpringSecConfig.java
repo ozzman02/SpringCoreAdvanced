@@ -51,8 +51,9 @@ public class SpringSecConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().ignoringAntMatchers("/h2-console").disable()
-                .authorizeRequests().antMatchers("/**/favicon.ico") .permitAll()
+        http.csrf().ignoringAntMatchers("/h2-console/**").disable().headers().frameOptions().disable()
+        		.and().authorizeRequests().antMatchers("/**/favicon.ico") .permitAll()
+        		.and().authorizeRequests().antMatchers("/h2-console/**").permitAll()
                 .and().authorizeRequests().antMatchers("/product/**").permitAll()
                 .and().authorizeRequests().antMatchers("/webjars/**").permitAll()
                 .and().authorizeRequests().antMatchers("/static/css").permitAll()
